@@ -62,6 +62,9 @@ type Client struct {
 	Sessions *SessionManager
 
 	ApplicationID string
+
+	// ProxyURL is the base URL for a proxy server that will forward requests to Discord.
+	ProxyURL string
 }
 
 // Authentication represents authentication parameters required to authenticate the bot.
@@ -8206,7 +8209,7 @@ const (
 )
 
 func (e ErrorStatusCode) Error() string {
-	return fmt.Sprintf("STATUS CODE ERROR: status code: %q: msg: %v", e.StatusCode, StatusCodeError(e.StatusCode))
+	return fmt.Sprintf("STATUS CODE ERROR: status code: %d: msg: %v", e.StatusCode, StatusCodeError(e.StatusCode))
 }
 
 // StatusCodeError returns the relevant message for a Discord API HTTP Status Code.
@@ -8836,8 +8839,8 @@ func (r *ActionRow) UnmarshalJSON(b []byte) error {
 	type alias ActionRow
 
 	var unmarshalled struct {
-		Components json.RawMessage `json:"components"`
 		alias
+		Components json.RawMessage `json:"components"`
 	}
 
 	var err error
@@ -8940,8 +8943,8 @@ func (r *Message) UnmarshalJSON(b []byte) error {
 	type alias Message
 
 	var unmarshalled struct {
-		Components json.RawMessage `json:"components"`
 		alias
+		Components json.RawMessage `json:"components"`
 	}
 
 	var err error
@@ -9006,8 +9009,8 @@ func (r *Interaction) UnmarshalJSON(b []byte) error {
 	type alias Interaction
 
 	var unmarshalledInteraction struct {
-		Data json.RawMessage `json:"data,omitempty"`
 		alias
+		Data json.RawMessage `json:"data,omitempty"`
 	}
 
 	var err error
@@ -10503,6 +10506,11 @@ func SendRequest(bot *Client, xid, routeid, resourceid, method, uri string, cont
 	requestid := routeid + resourceid
 	request := fasthttp.AcquireRequest()
 	defer fasthttp.ReleaseRequest(request)
+	// TODO: improve later (pretty inefficient way to do this but easy and works...)
+	if bot.ProxyURL != "" && strings.HasPrefix(uri, "https://discord.com/api/") {
+		relativePath := strings.TrimPrefix(uri, "https://discord.com/api")
+		uri = bot.ProxyURL + relativePath
+	}
 	request.Header.SetMethod(method)
 	request.Header.SetContentTypeBytes(content)
 	request.Header.Set(headerAuthorizationKey, bot.Authentication.Header)
@@ -20996,7 +21004,7 @@ func (s *Session) manage(bot *Client) error { //nolint:maintidx
 					} // vErr == nil
 				} // errors.As
 
-				return err
+				return err //nolint:wrapcheck
 			} // err != nil
 
 			return nil

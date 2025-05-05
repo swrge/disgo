@@ -33,6 +33,9 @@ type Client struct {
 	Sessions *SessionManager
 
 	ApplicationID string
+
+	// ProxyURL is the base URL for a proxy server that will forward requests to Discord.
+	ProxyURL string
 }
 
 // Authentication represents authentication parameters required to authenticate the bot.

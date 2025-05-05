@@ -3,6 +3,7 @@ package wrapper
 import (
 	"fmt"
 	"strconv"
+	"strings"
 	"time"
 
 	json "github.com/goccy/go-json"
@@ -126,6 +127,11 @@ func SendRequest(bot *Client, xid, routeid, resourceid, method, uri string, cont
 	requestid := routeid + resourceid
 	request := fasthttp.AcquireRequest()
 	defer fasthttp.ReleaseRequest(request)
+	// TODO: improve later (pretty inefficient way to do this but easy and works...)
+	if bot.ProxyURL != "" && strings.HasPrefix(uri, "https://discord.com/api/") {
+		relativePath := strings.TrimPrefix(uri, "https://discord.com/api")
+		uri = bot.ProxyURL + relativePath
+	}
 	request.Header.SetMethod(method)
 	request.Header.SetContentTypeBytes(content)
 	request.Header.Set(headerAuthorizationKey, bot.Authentication.Header)
