@@ -141,7 +141,8 @@ func SendRequest(bot *Client, xid, routeid, resourceid, method, uri string, cont
 	defer fasthttp.ReleaseResponse(response)
 
 	// Certain endpoints are not bound to the bot's Global Rate Limit.
-	if IgnoreGlobalRateLimitRouteIDs[requestid] {
+	// Skip directly to sending the request if a proxy.
+	if IgnoreGlobalRateLimitRouteIDs[requestid] || bot.ProxyURL != "" {
 		goto SEND
 	}
 
@@ -229,7 +230,7 @@ SEND:
 	// confirm the response with the rate limiter.
 	//
 	// Certain endpoints are not bound to the bot's Global Rate Limit.
-	if !IgnoreGlobalRateLimitRouteIDs[requestid] {
+	if !IgnoreGlobalRateLimitRouteIDs[requestid] && bot.ProxyURL == "" {
 		// parse the Rate Limit Header for per-route rate limit functionality.
 		header = peekHeaderRateLimit(response)
 
