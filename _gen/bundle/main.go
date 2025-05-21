@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/switchupcb/disgo/_gen/bundle/tools"
+	"github.com/swrge/disgo/_gen/bundle/tools"
 )
 
 var (

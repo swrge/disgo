@@ -5,7 +5,7 @@ import (
 
 	json "github.com/goccy/go-json"
 	"github.com/rs/zerolog/log"
-	"github.com/switchupcb/disgo/wrapper/socket"
+	"github.com/swrge/disgo/wrapper/socket"
 	"github.com/switchupcb/websocket"
 )
 

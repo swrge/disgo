@@ -6,7 +6,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/switchupcb/disgo"
+	"github.com/swrge/disgo"
 	"golang.org/x/sync/errgroup"
 )
 

@@ -8,7 +8,7 @@ import (
 
 // Default Configuration Values.
 const (
-	module           = "github.com/switchupcb/disgo"
+	module           = "github.com/swrge/disgo"
 	defaultUserAgent = "DiscordBot (https://" + module + ", v" + VersionDiscordAPI + ")"
 )
 

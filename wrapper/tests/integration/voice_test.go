@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/rs/zerolog"
-	. "github.com/switchupcb/disgo"
+	. "github.com/swrge/disgo"
 )
 
 func TestConnectVoice(t *testing.T) {

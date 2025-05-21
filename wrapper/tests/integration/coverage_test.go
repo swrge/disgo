@@ -11,7 +11,7 @@ import (
 	"golang.org/x/sync/errgroup"
 
 	"github.com/rs/zerolog"
-	. "github.com/switchupcb/disgo"
+	. "github.com/swrge/disgo"
 )
 
 // Error Format Strings

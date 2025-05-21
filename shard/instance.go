@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/switchupcb/disgo"
+	"github.com/swrge/disgo"
 )
 
 // InstanceShardManager is a shard manager for a Discord Bot

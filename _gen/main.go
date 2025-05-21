@@ -8,7 +8,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/switchupcb/disgo/_gen/tools"
+	"github.com/swrge/disgo/_gen/tools"
 )
 
 var (

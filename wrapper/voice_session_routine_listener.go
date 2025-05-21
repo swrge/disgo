@@ -3,7 +3,7 @@ package wrapper
 import (
 	"sync/atomic"
 
-	"github.com/switchupcb/disgo/wrapper/socket"
+	"github.com/swrge/disgo/wrapper/socket"
 )
 
 // listen listens to the connection for payloads from the Discord Voice Server.

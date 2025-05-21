@@ -3,7 +3,7 @@ package unit_test
 import (
 	"testing"
 
-	. "github.com/switchupcb/disgo"
+	. "github.com/swrge/disgo"
 )
 
 // testOAuth2 represents parameters used to test GenerateAuthorizationURL.

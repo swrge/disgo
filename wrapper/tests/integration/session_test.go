@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/rs/zerolog"
-	. "github.com/switchupcb/disgo"
+	. "github.com/swrge/disgo"
 )
 
 // TestConnect tests Connect(), Disconnect(), heartbeat(), listen(), and onPayload()

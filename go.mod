@@ -1,4 +1,4 @@
-module github.com/switchupcb/disgo
+module github.com/swrge/disgo
 
 go 1.23
 

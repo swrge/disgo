@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/switchupcb/disgo"
-	"github.com/switchupcb/disgo/tools"
+	"github.com/swrge/disgo"
+	"github.com/swrge/disgo/tools"
 )
 
 // Environment Variables.

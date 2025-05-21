@@ -8,7 +8,7 @@ import (
 	"time"
 
 	json "github.com/goccy/go-json"
-	"github.com/switchupcb/disgo/wrapper/socket"
+	"github.com/swrge/disgo/wrapper/socket"
 	"github.com/switchupcb/websocket"
 	"golang.org/x/sync/errgroup"
 )

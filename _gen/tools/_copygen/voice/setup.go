@@ -1,7 +1,7 @@
 package wrapper
 
 import (
-	disgo "github.com/switchupcb/disgo/wrapper"
+	disgo "github.com/swrge/disgo/wrapper"
 )
 
 // Copygen defines the functions that will be generated.

@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/rs/zerolog"
-	"github.com/switchupcb/disgo"
-	. "github.com/switchupcb/disgo/shard"
+	"github.com/swrge/disgo"
+	. "github.com/swrge/disgo/shard"
 )
 
 // TestReconnect tests Connect(), Disconnect(), and Reconnect() of the Shard Manager.

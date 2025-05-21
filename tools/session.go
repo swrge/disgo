@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/switchupcb/disgo"
+	"github.com/swrge/disgo"
 	"github.com/switchupcb/websocket"
 )
 
@@ -13,7 +13,7 @@ var (
 	// ReconnectOnUnexpectedDisconnectionHandlers represents default handlers the user can pass to
 	// ReconnectOnUnexpectedDisconnection() to reconnect the bot.
 	//
-	// Read https://github.com/switchupcb/disgo/discussions/82 for more information about each handler.
+	// Read https://github.com/swrge/disgo/discussions/82 for more information about each handler.
 	ReconnectOnUnexpectedDisconnectionHandlers = []func(error) bool{
 		// failed to get reader: failed to read frame header: EOF
 		func(err error) bool {

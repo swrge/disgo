@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/switchupcb/disgo"
+	"github.com/swrge/disgo"
 	"github.com/valyala/fasthttp"
 )
 
